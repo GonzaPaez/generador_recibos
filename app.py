@@ -83,9 +83,9 @@ with st.form("generar_pdf"):
             pdf.set_font("Helvetica", size=10)
 
             # Encabezado
-            pdf.cell(0, 5, "Empresa: Grupo Cinca S.A.                   CUIT: 30-00000000-0", ln=True)
-            pdf.cell(0, 5, f"Empleado: {empleado}                       CUIL: {cuil}", ln=True)
-            pdf.cell(0, 5, f"Legajo: {legajo}                           Periodo: {periodo}", ln=True)
+            pdf.cell(0, 5, f"{'Empresa:':<15}{'Empresa S.A.':<40}{'CUIT:':<15}{'XX-XXXXXXXX-X'}", ln=True)
+            pdf.cell(0, 5, f"{'Empleado:':<14}{empleado:<40}{'CUIL:':<15}{cuil}", ln=True)
+            pdf.cell(0, 5, f"{'Legajo:':<17}{legajo:<44}{'Período:':<13}{periodo}", ln=True)
             pdf.ln(5)
 
             # Tabla
