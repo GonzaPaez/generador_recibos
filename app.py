@@ -120,6 +120,7 @@ with st.form("generar_pdf"):
             pdf.cell(0, 6, "_______________________________", ln=True)
             pdf.cell(0, 6, "Firma del Empleado", ln=True)
 
+            os.makedirs("pdfs", exist_ok=True)
             pdf.output(filename)
 
             st.session_state["archivo_generado"] = filename
