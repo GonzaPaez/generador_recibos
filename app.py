@@ -1,6 +1,7 @@
 import streamlit as st
 from fpdf import FPDF
 import os
+import re
 
 st.set_page_config(page_title="Generador de Recibos de Sueldo")
 
@@ -75,7 +76,8 @@ with st.form("generar_pdf"):
         elif not st.session_state["conceptos"]:
             st.error("Debe cargar al menos un concepto para generar el recibo.")
         else:
-            filename = f"recibos/{empleado.replace(' ', '_')}_{periodo}.pdf"
+            nombre_sanitizado = re.sub(r"[^a-zA-Z0-9_-]", "_ ", f"{empleado}_{periodo}")
+            filename = f"pdfs/{nombre_sanitizado}.pdf"
             pdf = FPDF()
             pdf.add_page()
             pdf.set_font("Helvetica", size=10)
